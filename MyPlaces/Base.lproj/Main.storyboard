@@ -142,6 +142,9 @@
                                                             <rect key="frame" x="0.0" y="27.5" width="382" height="31.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="gLl-h3-lC1" id="zST-Zs-hDF"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -174,6 +177,9 @@
                                                             <rect key="frame" x="0.0" y="27.5" width="382" height="31.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="gLl-h3-lC1" id="7XE-Px-ZKB"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -206,6 +212,9 @@
                                                             <rect key="frame" x="0.0" y="27.5" width="382" height="31.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="gLl-h3-lC1" id="gZX-gB-mVO"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
