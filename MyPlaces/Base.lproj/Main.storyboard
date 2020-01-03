@@ -202,7 +202,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-sy-Voq">
                                                     <rect key="frame" x="16" y="8" width="382" height="59"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIZ-vx-jph">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIZ-vx-jph">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -238,16 +238,20 @@
                     <navigationItem key="navigationItem" title="New Place" id="JKM-5X-Mcp">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="aDE-RX-dF4">
                             <connections>
-                                <segue destination="lnx-MZ-ybZ" kind="unwind" unwindAction="cancelAction:" id="nVv-t2-UiB"/>
+                                <action selector="cancelAction:" destination="gLl-h3-lC1" id="QdE-yu-qwu"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Nhl-1G-kxT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Nhl-1G-kxT">
+                            <connections>
+                                <segue destination="lnx-MZ-ybZ" kind="unwind" unwindAction="unwindSegue:" id="maf-OV-0dO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="placeImage" destination="6D3-4U-gXq" id="2pX-ig-n1R"/>
                         <outlet property="placeLocation" destination="lrB-LW-lfQ" id="GVQ-HT-ex1"/>
                         <outlet property="placeName" destination="Yag-3C-jec" id="6Hk-YN-CZo"/>
-                        <outlet property="placeTitle" destination="NyJ-Pe-lVn" id="VOt-Bx-zap"/>
+                        <outlet property="placeType" destination="NyJ-Pe-lVn" id="VOt-Bx-zap"/>
                         <outlet property="saveButton" destination="Nhl-1G-kxT" id="xVs-Eu-muJ"/>
                     </connections>
                 </tableViewController>
