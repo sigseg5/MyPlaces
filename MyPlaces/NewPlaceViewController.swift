@@ -20,6 +20,10 @@ class NewPlaceViewController: UITableViewController {
 //    MARK: Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
+            
+            let cameraIcon = #imageLiteral(resourceName: "camera")
+            let photoIcon = #imageLiteral(resourceName: "photo")
+            
             let actionSheet = UIAlertController(title: nil,
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
@@ -27,9 +31,15 @@ class NewPlaceViewController: UITableViewController {
                 self.chooseImgPicker(source: .camera)
                 
             }
+            cameraAction.setValue(cameraIcon, forKey: "image")
+            cameraAction.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+            
             let photoAction = UIAlertAction(title: "Photo", style: .default) { _ in
                 self.chooseImgPicker(source: .photoLibrary)
             }
+            photoAction.setValue(photoIcon, forKey: "image")
+            photoAction.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+            
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             
             actionSheet.addAction(cameraAction)
