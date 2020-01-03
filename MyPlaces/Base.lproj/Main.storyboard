@@ -110,7 +110,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-4U-gXq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250.00000000000006"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -244,13 +244,17 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Nhl-1G-kxT"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageOfPlace" destination="6D3-4U-gXq" id="2pX-ig-n1R"/>
+                        <outlet property="placeImage" destination="6D3-4U-gXq" id="2pX-ig-n1R"/>
+                        <outlet property="placeLocation" destination="lrB-LW-lfQ" id="GVQ-HT-ex1"/>
+                        <outlet property="placeName" destination="Yag-3C-jec" id="6Hk-YN-CZo"/>
+                        <outlet property="placeTitle" destination="NyJ-Pe-lVn" id="VOt-Bx-zap"/>
+                        <outlet property="saveButton" destination="Nhl-1G-kxT" id="xVs-Eu-muJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tVn-az-v7J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="lnx-MZ-ybZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2382.608695652174" y="139.95535714285714"/>
+            <point key="canvasLocation" x="2422" y="144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="foT-7p-Qqq">
@@ -272,7 +276,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baI-7K-O9H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="144"/>
+            <point key="canvasLocation" x="158" y="144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="294-uI-gPf">
@@ -290,7 +294,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oqp-7F-n73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1666.6666666666667" y="139.95535714285714"/>
+            <point key="canvasLocation" x="1667" y="144"/>
         </scene>
     </scenes>
     <resources>
