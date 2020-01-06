@@ -21,12 +21,7 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet weak var placeType: UITextField!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        DispatchQueue.main.async {
-            self.newPlace.savePlacesToRealm()
-        }
-        
+        super.viewDidLoad()        
         tableView.tableFooterView = UIView()
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
