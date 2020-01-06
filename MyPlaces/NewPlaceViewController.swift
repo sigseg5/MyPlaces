@@ -60,7 +60,6 @@ class NewPlaceViewController: UITableViewController {
     }
     
     func saveNewPlace() {
-        let newPlace = Place()
         var newImage: UIImage?
         
         if imageIsChanged {
@@ -70,11 +69,11 @@ class NewPlaceViewController: UITableViewController {
         }
         
         let imageData = newImage?.pngData()
-        
-        newPlace.name = placeName.text!
-        newPlace.location = placeLocation.text!
-        newPlace.type = placeType.text!
-        newPlace.imageData = imageData
+        let newPlace = Place(name: placeName.text!,
+                             location: placeLocation.text,
+                             type: placeType.text,
+                             imageData: imageData!)
+        StorageManager.saveObject(newPlace)
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
