@@ -31,6 +31,8 @@ class Place: Object {
             newPlace.location = "Moscow"
             newPlace.type = "Restarant"
             newPlace.imageData = imageData
+            
+            StorageManager.saveObject(newPlace)
         }
     }
 }
