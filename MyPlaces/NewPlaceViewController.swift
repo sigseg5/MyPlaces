@@ -65,7 +65,7 @@ class NewPlaceViewController: UITableViewController {
     
     func saveNewPlace() {
         var newImage: UIImage?
-        
+    
         if imageIsChanged {
             newImage = placeImage.image
         } else {
@@ -82,12 +82,24 @@ class NewPlaceViewController: UITableViewController {
     
     private func setupEditScreen() {
         if currentPlace != nil {
+            setupNavigationBar()
             guard let data = currentPlace?.imageData, let image = UIImage(data: data) else { return }
             placeImage.image = image
+            placeImage.contentMode = .scaleAspectFill
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
         }
+    }
+    
+    private func setupNavigationBar() {
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        }
+        
+        navigationItem.leftBarButtonItem = nil
+        title = currentPlace?.name
+        saveButton.isEnabled = true
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
