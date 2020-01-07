@@ -70,6 +70,7 @@
                                     <outlet property="locationLabel" destination="Hsc-Jp-zya" id="2AV-Uo-cEv"/>
                                     <outlet property="nameLabel" destination="zgt-IG-NEs" id="VUz-Pf-KfZ"/>
                                     <outlet property="typeLabel" destination="cJb-PF-Yyc" id="WDu-00-CZT"/>
+                                    <segue destination="gLl-h3-lC1" kind="show" identifier="showDetail" id="ho4-g9-Ph9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -95,7 +96,7 @@
             <objects>
                 <tableViewController id="gLl-h3-lC1" customClass="NewPlaceViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9JS-WY-KIc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -110,7 +111,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-4U-gXq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250.00000000000006"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -258,7 +259,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tVn-az-v7J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="lnx-MZ-ybZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="144"/>
+            <point key="canvasLocation" x="1687" y="144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="foT-7p-Qqq">
@@ -298,10 +299,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oqp-7F-n73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="144"/>
+            <point key="canvasLocation" x="1687" y="-536"/>
         </scene>
     </scenes>
     <resources>
         <image name="Photo" width="195" height="196"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ho4-g9-Ph9"/>
+    </inferredMetricsTieBreakers>
 </document>
