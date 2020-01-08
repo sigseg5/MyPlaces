@@ -12,6 +12,8 @@ import RealmSwift
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var reversedSortingButton: UIBarButtonItem!
     
     var places: Results<Place>!
 
@@ -65,5 +67,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         guard let newPlaceVC = segue.source as? NewPlaceViewController else { return }
         newPlaceVC.savePlace()
         tableView.reloadData()
+    }
+    
+    @IBAction func sortedSelection(_ sender: UISegmentedControl) {
+    }
+    
+    @IBAction func reversedSorting(_ sender: UIBarButtonItem) {
     }
 }
