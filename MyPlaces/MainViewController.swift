@@ -70,6 +70,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func sortedSelection(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            places = places.sorted(byKeyPath: "date")
+        } else {
+            places = places.sorted(byKeyPath: "name")
+        }
+        tableView.reloadData()
     }
     
     @IBAction func reversedSorting(_ sender: UIBarButtonItem) {
