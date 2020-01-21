@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable class RatingControl: UIStackView {
     
     //MARK: Props
+    var rating = 0
     private var ratingButtons = [UIButton]()
     
     @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
@@ -24,8 +25,6 @@ import UIKit
         }
     }
     
-    var rating = 0
-    
     //MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,7 +37,7 @@ import UIKit
     }
     
     //MARK: Button action
-    @objc func retignButtonTapped(button: UIButton) {
+    @objc func ratignButtonTapped(button: UIButton) {
         print("Button pressed!")
     }
     
@@ -61,7 +60,7 @@ import UIKit
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
             
             //Setup the button action
-            button.addTarget(self, action: #selector(retignButtonTapped(button:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(ratignButtonTapped(button:)), for: .touchUpInside)
             
             //Add button to the stack view
             addArrangedSubview(button)
