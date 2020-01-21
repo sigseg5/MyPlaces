@@ -109,8 +109,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "iPad Spotlight iOS 7,9@2x-1.png",
       "scale" : "2x"
     },
     {
