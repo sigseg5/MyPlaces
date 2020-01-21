@@ -38,7 +38,15 @@ import UIKit
     
     //MARK: Button action
     @objc func ratignButtonTapped(button: UIButton) {
-        print("Button pressed!")
+        guard let index = ratingButtons.firstIndex(of: button) else { return }
+        
+        //Calculate the rating of selected button
+         let selectedRating = index + 1
+        if selectedRating == rating  {
+            rating = 0
+        } else {
+            rating = selectedRating
+        }
     }
     
     //MARK: Private Methods
@@ -49,10 +57,21 @@ import UIKit
         }
         ratingButtons.removeAll()
         
+        //Load buttton image
+        let bundle = Bundle(for: type(of: self))
+        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
+        let emptyStar = UIImage(named: "emptyStar", in: bundle, compatibleWith: self.traitCollection)
+        let hightlightedStar = UIImage(named: "hightlightedStar", in: bundle, compatibleWith: self.traitCollection)
+        
         for _ in 0..<starCount {
             //Create button
             let button = UIButton()
-            button.backgroundColor = .red
+            
+            //Set image for button
+            button.setImage(emptyStar, for: .normal)
+            button.setImage(filledStar, for: .selected)
+            button.setImage(hightlightedStar, for: .highlighted)
+            button.setImage(hightlightedStar, for: [.highlighted, .selected])
             
             //Add constraints
             button.translatesAutoresizingMaskIntoConstraints = false
