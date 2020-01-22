@@ -11,7 +11,11 @@ import UIKit
 @IBDesignable class RatingControl: UIStackView {
     
     //MARK: Props
-    var rating = 0
+    var rating = 0 {
+        didSet {
+            updateButtonSelectionStates()
+        }
+    }
     private var ratingButtons = [UIButton]()
     
     @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
@@ -86,6 +90,12 @@ import UIKit
             
             ratingButtons.append(button)
         }
+        updateButtonSelectionStates()
     }
-
+    
+    private func updateButtonSelectionStates() {
+        for (index, button) in ratingButtons.enumerated() {
+            button.isSelected = index < rating
+        }
+    }
 }
