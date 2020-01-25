@@ -37,7 +37,7 @@
                                                     </constraints>
                                                     <state key="normal" image="map"/>
                                                     <connections>
-                                                        <segue destination="7ju-pT-GRx" kind="presentation" id="3Mw-MC-Yl4"/>
+                                                        <segue destination="7ju-pT-GRx" kind="presentation" identifier="showMap" id="3Mw-MC-Yl4"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
