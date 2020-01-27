@@ -10,14 +10,14 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-    @IBOutlet weak var mapView: MKMapView!
-    var place: Place! 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    @IBAction func cancelMapVC() {
-        dismiss(animated: true, completion: nil)
-    }
+  @IBOutlet weak var mapView: MKMapView!
+  var place: Place! 
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
+  @IBAction func cancelMapVC() {
+    dismiss(animated: true, completion: nil)
+  }
 }
