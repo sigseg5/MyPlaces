@@ -59,9 +59,9 @@ class MapViewController: UIViewController {
       DispatchQueue.main.async {
         let locationErrorAlert = UIAlertController(title: "Geolocation Services Error", message: "Please enable Location Services in iPhone settings", preferredStyle: .alert)
         locationErrorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//        locationErrorAlert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (self) in
-//          UIApplication.shared.openURL(NSURL(string:"prefs:root=LOCATION_SERVICES")! as URL)
-//        }))
+        locationErrorAlert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (action:UIAlertAction!) in
+          self.openLocationSettings()
+        }))
         self.present(locationErrorAlert, animated: true, completion: nil)
       }
     }
@@ -78,23 +78,23 @@ class MapViewController: UIViewController {
       locationManager.requestWhenInUseAuthorization()
     case .restricted:
       DispatchQueue.main.async {
-              let locationErrorAlert = UIAlertController(title: "Geolocation Services Error", message: "Please enable Location Services in iPhone settings", preferredStyle: .alert)
-              locationErrorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-      //        locationErrorAlert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (self) in
-      //          UIApplication.shared.openURL(NSURL(string:"prefs:root=LOCATION_SERVICES")! as URL)
-      //        }))
-              self.present(locationErrorAlert, animated: true, completion: nil)
-            }
+        let locationErrorAlert = UIAlertController(title: "Geolocation Services Error – restricted", message: "Please enable Location Services in iPhone settings", preferredStyle: .alert)
+        locationErrorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        locationErrorAlert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (action:UIAlertAction!) in
+          self.openLocationSettings()
+        }))
+        self.present(locationErrorAlert, animated: true, completion: nil)
+      }
       break
     case .denied:
       DispatchQueue.main.async {
-              let locationErrorAlert = UIAlertController(title: "Geolocation Services Error", message: "Please enable Location Services in iPhone settings", preferredStyle: .alert)
-              locationErrorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-      //        locationErrorAlert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (self) in
-      //          UIApplication.shared.openURL(NSURL(string:"prefs:root=LOCATION_SERVICES")! as URL)
-      //        }))
-              self.present(locationErrorAlert, animated: true, completion: nil)
-            }
+        let locationErrorAlert = UIAlertController(title: "Geolocation Services Error", message: "Please enable Location Services in iPhone settings", preferredStyle: .alert)
+        locationErrorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        locationErrorAlert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (action:UIAlertAction!) in
+          self.openLocationSettings()
+        }))
+        self.present(locationErrorAlert, animated: true, completion: nil)
+      }
       break
     case .authorizedAlways:
       break
@@ -103,6 +103,18 @@ class MapViewController: UIViewController {
       break
     @unknown default:
       NSLog("New case here")
+    }
+  }
+  
+  private func openLocationSettings() {
+    if let url = URL(string:"App-Prefs:root=Privacy") {
+      if UIApplication.shared.canOpenURL(url) {
+        if #available(iOS 10.0, *) {
+          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+          UIApplication.shared.openURL(url)
+        }
+      }
     }
   }
 }
