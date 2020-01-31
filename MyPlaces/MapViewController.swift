@@ -19,6 +19,7 @@ class MapViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     mapView.delegate = self
+    mapView.showsCompass = false
     setupPlacemark()
     checkLocationServices()
   }
