@@ -8,16 +8,19 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
   @IBOutlet weak var mapView: MKMapView!
   var place = Place()
   let annotationIdentifier = "annotationIdentifier"
+  let locationManager = CLLocationManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     mapView.delegate = self
     setupPlacemark()
+    checkLocationServices()
   }
   
   @IBAction func cancelMapVC() {
@@ -46,6 +49,61 @@ class MapViewController: UIViewController {
       self.mapView.selectAnnotation(annotation, animated: true)
     }
   }
+  
+  private func checkLocationServices() {
+    if CLLocationManager.locationServicesEnabled() {
+      setupLocationManager()
+      checkLocationAuth()
+    } else {
+      DispatchQueue.main.async {
+        let locationErrorAlert = UIAlertController(title: "Geolocation Services Error", message: "Please enable Location Services in iPhone settings", preferredStyle: .alert)
+        locationErrorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        locationErrorAlert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (self) in
+//          UIApplication.shared.openURL(NSURL(string:"prefs:root=LOCATION_SERVICES")! as URL)
+//        }))
+        self.present(locationErrorAlert, animated: true, completion: nil)
+      }
+    }
+  }
+  
+  private func setupLocationManager() {
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager.delegate = self
+  }
+  
+  private func checkLocationAuth() {
+    switch CLLocationManager.authorizationStatus() {
+    case .notDetermined:
+      locationManager.requestWhenInUseAuthorization()
+    case .restricted:
+      DispatchQueue.main.async {
+              let locationErrorAlert = UIAlertController(title: "Geolocation Services Error", message: "Please enable Location Services in iPhone settings", preferredStyle: .alert)
+              locationErrorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+      //        locationErrorAlert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (self) in
+      //          UIApplication.shared.openURL(NSURL(string:"prefs:root=LOCATION_SERVICES")! as URL)
+      //        }))
+              self.present(locationErrorAlert, animated: true, completion: nil)
+            }
+      break
+    case .denied:
+      DispatchQueue.main.async {
+              let locationErrorAlert = UIAlertController(title: "Geolocation Services Error", message: "Please enable Location Services in iPhone settings", preferredStyle: .alert)
+              locationErrorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+      //        locationErrorAlert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (self) in
+      //          UIApplication.shared.openURL(NSURL(string:"prefs:root=LOCATION_SERVICES")! as URL)
+      //        }))
+              self.present(locationErrorAlert, animated: true, completion: nil)
+            }
+      break
+    case .authorizedAlways:
+      break
+    case .authorizedWhenInUse:
+      mapView.showsUserLocation = true
+      break
+    @unknown default:
+      NSLog("New case here")
+    }
+  }
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -67,5 +125,11 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     return annotationView
+  }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    checkLocationAuth()
   }
 }
